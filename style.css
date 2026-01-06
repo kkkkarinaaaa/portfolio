@@ -18,16 +18,21 @@ html{
     align-items: center;
     gap: 100px;
     background-color: #001f7c38;
+    z-index: 0;
 }
 
-
+/* ===== GLOBAL BACKGROUND VIDEO (ONE VERSION ONLY) ===== */
 .back-vid{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    mix-blend-mode:overlay;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -3;
+  filter: brightness(1.15) contrast(1.05) saturate(1.1);
+  mix-blend-mode: normal;
 }
+
 
 
 /* чуть воздуха снизу, чтобы футер не "съедал" конец */
@@ -829,15 +834,5 @@ header ul a{
   .footer{ padding: 15px; }
   .footer h1{ max-width: 150px; }
 }
-/* ===== GLOBAL BACKGROUND VIDEO ===== */
-.back-vid{
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -3;
 
-  /* делаем видео заметным */
-  filter: brightness(1.35) contrast(1.1) saturate(1.2);
-}
+
