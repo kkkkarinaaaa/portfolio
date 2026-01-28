@@ -858,31 +858,32 @@ body{
   line-height: 1;
 }
 
-/* ================= SCROLL ARROW (UNDER HEADER) ================= */
-:root{ --header-h: 70px; }
-@media (max-width: 700px){ :root{ --header-h: 56px; } }
+/* ===== ARROW: inside header, centered under header content ===== */
+.site-header{
+  overflow: visible; /* важно, чтобы стрелка могла "вылезать" вниз */
+}
 
-/* базовый вид */
-.scroll-down{
+.site-header .scroll-down{
   height: 50px;
   width: 30px;
   border: 2px solid lightgray;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
+  box-shadow: 0 0 10px rgba(255,255,255,0.626);
 
-  /* ✅ Позиция: всегда под хедером */
-  position: fixed !important;
-  top: calc(var(--header-h) + 12px) !important;
-  bottom: auto !important;
+  position: absolute !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 2000 !important;
+
+  top: auto !important;
+  bottom: -60px !important;  /* ✅ стрелка ниже хедера (после всего текста в хедере) */
+
+  z-index: 5000 !important;
 }
 
 /* стрелочки внутри */
-.scroll-down::before,
-.scroll-down::after{
+.site-header .scroll-down::before,
+.site-header .scroll-down::after{
   content: "";
   position: absolute;
   top: 20%;
@@ -895,7 +896,8 @@ body{
   border-left: transparent;
   animation: scrollDownAnim 2s ease-in-out infinite;
 }
-.scroll-down::before{
+
+.site-header .scroll-down::before{
   top: 30%;
   animation-delay: 0.5s;
 }
@@ -906,7 +908,6 @@ body{
   60%{ opacity: 1; }
   100%{ top: 90%; opacity: 0; }
 }
-
 
 /* ===================== SLIDER (FIXED + CENTERED) ===================== */
 .skills-box{ position: relative; } /* якорь для absolute */
@@ -1007,6 +1008,7 @@ body{
     --height: 70px;
   }
 }
+
 
 
 
