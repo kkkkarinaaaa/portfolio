@@ -55,7 +55,7 @@
             Junior Full-Stack Developer
           </div>
 
-          <h1 data-aos="fade-right" data-aos-duration="3000">
+          <h1 data-aos="fade-right" data-aos-duration="2500">
             Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
           </h1>
 
@@ -125,15 +125,14 @@
       <h1 class="section-title autoDisplay">My Projects 👨‍💻</h1>
 
       <div class="project-card">
-        <div class="project-vidbox">
+        <div class="project-vidbox autoBlur">
           <video
+            class="project-video"
             loop
-            id="projectVideo1"
             src="videos/website.mp4"
             muted
             playsinline
             preload="metadata"
-            controls
             poster="images/grid4.png"></video>
           <div class="hover-sign" aria-hidden="true"></div>
         </div>
@@ -153,15 +152,14 @@
       </div>
 
       <div class="project-card">
-        <div class="project-vidbox">
+        <div class="project-vidbox autoBlur">
           <video
+            class="project-video"
             loop
-            id="projectVideo2"
             src="videos/project2.mp4"
             muted
             playsinline
             preload="metadata"
-            controls
             poster="images/grid4.png"></video>
           <div class="hover-sign" aria-hidden="true"></div>
         </div>
@@ -197,7 +195,7 @@
           </p>
         </div>
 
-        <div class="slider autoBlur" reverse="true" style="--width: 100px; --height: 100px; --quantity: 9;">
+        <div class="slider autoBlur" style="--width: 100px; --height: 100px; --quantity: 9;">
           <div class="list">
             <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" loading="lazy" decoding="async" /></div>
             <div class="item" style="--position: 2"><img src="images/2.png" alt="Tech icon 2" loading="lazy" decoding="async" /></div>
@@ -205,13 +203,8 @@
             <div class="item" style="--position: 4"><img src="images/4.webp" alt="Tech icon 4" loading="lazy" decoding="async" /></div>
             <div class="item" style="--position: 5"><img src="images/5.png" alt="Tech icon 5" loading="lazy" decoding="async" /></div>
 
-            <!-- FIX: icon 6 as <picture> (webp -> png fallback) -->
-            <div class="item" style="--position: 6">
-              <picture>
-                <source srcset="images/6.webp" type="image/webp">
-                <img src="images/6.png" alt="Tech icon 6" loading="lazy" decoding="async" />
-              </picture>
-            </div>
+            <!-- IMPORTANT: 6.png -->
+            <div class="item" style="--position: 6"><img src="images/6.png" alt="Tech icon 6" loading="lazy" decoding="async" /></div>
 
             <div class="item" style="--position: 7"><img src="images/7.png" alt="Tech icon 7" loading="lazy" decoding="async" /></div>
             <div class="item" style="--position: 8"><img src="images/8.png" alt="Tech icon 8" loading="lazy" decoding="async" /></div>
@@ -280,7 +273,11 @@
   <script src="app.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({ once: true });
+    // IMPORTANT: disable AOS on phones (otherwise text can stay hidden/blurred in iOS Telegram)
+    AOS.init({
+      once: true,
+      disable: () => window.innerWidth < 900
+    });
   </script>
 </body>
 </html>
