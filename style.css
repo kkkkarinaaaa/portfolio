@@ -1009,6 +1009,23 @@ body{
   }
 }
 
+/* Arrow anchored to header (under header) */
+.site-header{
+  position: fixed;
+  overflow: visible; /* чтобы стрелка могла быть ниже */
+}
+
+.site-header .scroll-down{
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  top: auto !important;
+  bottom: -60px !important; /* ✅ ниже хедера */
+
+  z-index: 5000 !important;
+}
+
 
 
 
