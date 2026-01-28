@@ -858,23 +858,16 @@ body{
   line-height: 1;
 }
 
-/* ================= ARROW UNDER HEADER (FORCE) ================= */
-:root{ --header-h: 70px; }
-@media (max-width: 700px){ :root{ --header-h: 56px; } }
-
-/* hero must be anchor */
+/* ================= ARROW (BOTTOM OF HERO) ================= */
 .hero{ position: relative; }
 
-/* force arrow under header */
 .scroll-down{
   position: absolute !important;
-  top: calc(var(--header-h) + 16px) !important;  /* ✅ сразу под header */
-  bottom: auto !important;
-
+  top: auto !important;        /* ✅ убираем верх */
+  bottom: 5% !important;       /* ✅ внизу секции */
   left: 50% !important;
   transform: translateX(-50%) !important;
-
-  z-index: 1000 !important;
+  z-index: 20 !important;
 }
 
 /* ===================== SLIDER (FIXED + CENTERED) ===================== */
@@ -976,4 +969,5 @@ body{
     --height: 70px;
   }
 }
+
 
