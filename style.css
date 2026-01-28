@@ -1,864 +1,286 @@
-/* ========== BASE ========== */
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body{
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: lightgray;
-  padding-bottom: 80px;
-}
-
-/* ========== CONTAINER ========== */
-.container{
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 100px;
-  background-color: #001f7c38;
-}
-
-/* ========== GLOBAL BACKGROUND VIDEO ========== */
-.back-vid{
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -3;
-  mix-blend-mode: overlay;
-  filter: brightness(1.35) contrast(1.1) saturate(1.2);
-}
-
-/* ========== HEADER ========== */
-.site-header{
-  display: flex;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
-  height: 70px;
-  background-color: rgba(255, 255, 255, 0.121);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 15px #72a1dea2;
-  z-index: 999;
-}
-
-.left{
-  display: flex;
-  align-items: center;
-}
-
-.left img{
-  width: 40px;
-  margin: 0 15px;
-}
-
-.name{
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-.name span{ color: #72a1de; }
-
-/* ===== NAV: pill under EACH item (как ты хотела) ===== */
-.nav-list{
-  display: flex;
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: transparent;
-  box-shadow: none;
-}
-
-.nav-link{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 700;
-
-  background-color: rgba(0, 0, 69, 0.326);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px #72a1de63;
-  transition: 0.25s ease;
-}
-
-.nav-link:hover{
-  box-shadow: 0 0 18px #72a1de8a;
-  transform: translateY(-1px);
-}
-
-/* icons */
-.icon-btn{ text-decoration: none; }
-.icon-btn p{ margin: 0; }
-
-.box-icons{
-  display: flex;
-  gap: 18px;
-}
-
-.box-icons p{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  width: 34px;
-  height: 34px;
-  border: 2px solid #727fde;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.box-icons p:hover{
-  background-color: #727fde;
-  color: black;
-  box-shadow: 0 0 15px #727fde6f;
-}
-
-/* ========== BLACKHOLE ========== */
-.blackhole-box{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: -1;
-  mix-blend-mode: lighten;
-}
-
-.blackhole-box video{
-  width: 100%;
-  margin-top: -23.5%;
-}
-
-/* ========== HERO ========== */
-.hero{
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 70px;
-}
-
-.hero-inner{
-  width: min(1200px, 90%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 24px;
-  align-items: center;
-  position: relative;
-}
-
-.hero-info .hero-info-title{
-  color: #72a1de;
-  padding: 8px 12px;
-  border-radius: 50px;
-  border: 1px solid #72a1de94;
-  width: fit-content;
-  background-color: #2200493d;
-  box-shadow: 0 0 5px #72a1de84;
-}
-
-.hero-info h1{
-  font-size: clamp(34px, 4.6vw, 60px);
-  max-width: 680px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-top: 28px;
-  margin-bottom: 18px;
-}
-
-.hero-info p{
-  max-width: 560px;
-  line-height: 1.6;
-  margin-bottom: 26px;
-  font-size: 18px;
-}
-
-.hero-info button{
-  color: white;
-  padding: 14px 28px;
-  border-radius: 10px;
-  border: 1px solid #72a1de81;
-  background-color: #2200493d;
-  box-shadow: 0 0 5px #72a1de81;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero-info button:hover{
-  box-shadow: 0 0 15px #72a1de81;
-}
-
-.skills-video-box{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.skills-video{
-  width: min(520px, 38vw);
-  height: auto;
-  mix-blend-mode: lighten;
-  border-radius: 18px;
-}
-
-/* Gradient */
-.gradient{
-  background: linear-gradient(to right,#00aaa7, #7e42a7, #6600c5, #6070fd,#2a46ff, #0099ff, #008ead);
-  background-size: 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animate-gradient 2.5s linear infinite;
-}
-@keyframes animate-gradient { to{ background-position: 200%; } }
-
-/* Scroll down */
-.scroll-down{
-  height: 50px;
-  width: 30px;
-  border: 2px solid lightgray;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 5%;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
-}
-.scroll-down::before,
-.scroll-down::after{
-  content: "";
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  height: 10px;
-  width: 10px;
-  transform: translate(-50%, -100%) rotate(45deg);
-  border: 2px solid lightgray;
-  border-top: transparent;
-  border-left: transparent;
-  animation: scroll-down 2s ease-in-out infinite;
-}
-.scroll-down::before{ top: 30%; animation-delay: 0.5s; }
-
-@keyframes scroll-down{
-  0%{ opacity: 0; }
-  30%{ opacity: 1; }
-  60%{ opacity: 1; }
-  100%{ top: 90%; opacity: 0; }
-}
-
-/* ========== INFO ========== */
-.info-section{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: min(1200px, 90%);
-  margin-top: 80px;
-}
-
-.section-title{
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.info-cards{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  width: 100%;
-  margin-top: 30px;
-}
-
-.card{
-  display: flex;
-  align-items:flex-start;
-  justify-content: center;
-  position: relative;
-  height: 40vh;
-  min-height: 320px;
-  overflow: hidden;
-  border: 1px solid gray;
-  background-color: #080020b7;
-  border-radius: 20px;
-  transition: 0.5s;
-}
-
-.card h1{
-  position: absolute;
-  margin: 0;
-  bottom: 40%;
-  left: 5%;
-  font-size: 25px;
-  z-index: 1;
-  color: #fff;
-}
-
-.card p{
-  position: absolute;
-  bottom: 3%;
-  left: 5%;
-  z-index: 1;
-  max-width: 300px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.card img{
-  width: 80%;
-  height: 50%;
-  object-fit: cover;
-}
-
-.card video{
-  margin-top: 10%;
-  width: 70%;
-  height: 50%;
-  object-fit: cover;
-  mix-blend-mode: lighten;
-}
-
-.card button{
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  padding: 10px 25px;
-  border: 1px solid gray;
-  background-color: #0f1217;
-  color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 5px lightgray;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.card button:hover{
-  box-shadow: 0 0 15px lightgray;
-  opacity: 0.85;
-}
-
-.card:hover{ box-shadow: 0 0 15px rgb(211, 211, 211); }
-
-.card:nth-child(3){
-  grid-row: span 2;
-  height: auto;
-  min-height: 680px;
-}
-.card:nth-child(3) p{ bottom: 12%; }
-.card:nth-child(3) h1{ bottom: 21%; }
-
-.card:nth-child(4){ grid-column: span 2; }
-.card:nth-child(4) p{ max-width: 650px; }
-.card:nth-child(4) h1{ bottom: 35%; }
-
-/* ========== PROJECTS ========== */
-.my-project{
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-  align-items: center;
-  width: min(1200px, 90%);
-  margin-top: 140px;
-  margin-bottom: 140px;
-}
-
-.project-card{
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 10%;
-  justify-content: center;
-}
-
-.project-vidbox{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  position: relative;
-  cursor: pointer;
-  transition: 0.5s;
-  min-width: 0;
-}
-
-.project-vidbox video{
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.55);
-  transition: 0.5s;
-  object-fit: cover;
-}
-
-.project-info{
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  width: 50%;
-}
-
-.project-info h1{
-  width: 100%;
-  font-size: 25px;
-  font-weight: bold;
-  margin: 0 0 10px 0;
-  max-width: 520px;
-  white-space: normal;
-}
-
-.project-info p{
-  width: 100%;
-  max-width: 520px;
-  min-width: 0;
-  margin: 0 0 28px 0;
-  line-height: 1.55;
-}
-
-/* hover sign */
-.project-vidbox .hover-sign{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.hover-sign::before{
-  content: "👆";
-  position: absolute;
-  font-size: 48px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  animation: hover-animation 2.6s ease-in-out infinite;
-}
-.hover-sign.active{ display: none; }
-
-@keyframes hover-animation{
-  0%{ opacity: 0.6; transform: translate(-50%, -50%) rotate(20deg); }
-  50%{ opacity: 1; transform: translate(-40%, -60%) rotate(0deg); }
-  100%{ opacity: 0.6; transform: translate(-50%, -50%) rotate(20deg); }
-}
-
-/* ========== SKILLS ========== */
-.skills-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: min(1200px, 90%);
-  margin: 0 auto;
-  position: relative;
-}
-
-.skills-box{
-  width: 100%;
-  min-height: 650px;
-  padding: 40px 0 120px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 40px;
-  mix-blend-mode: lighten;
-  opacity: 0.9;
-  position: relative;
-}
-
-.skills-image{
-  width: min(520px, 42vw);
-  height: auto;
-  justify-self: center;
-  display: block;
-  mix-blend-mode: difference;
-}
-
-.Designer,
-.coder{
-  position: static;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 380px;
-}
-
-.Designer{ justify-self: start; }
-.coder{ justify-self: end; }
-
-.Designer h1,
-.coder h1{
-  font-size: clamp(28px, 4vw, 50px);
-  display: flex;
-  align-items: center;
-  margin: 0 0 12px 0;
-}
-
-.Designer p,
-.coder p{
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* slider */
-.slider{
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(900px, 90%);
-  height: var(--height);
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
-  mix-blend-mode: difference;
-  opacity: 0.85;
-}
-.slider .list{
-  display: flex;
-  width: 100%;
-  min-width: calc(var(--width) * var(--quantity));
-  position: relative;
-}
-.slider .list .item{
-  width: var(--width);
-  height: var(--height);
-  position: absolute;
-  left: 100%;
-  animation: autoRun 10s linear infinite;
-  transition: filter 0.5s;
-  animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
-}
-.slider .list .item img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* если у тебя в HTML <picture> для 6-ой — тоже норм */
-.slider picture,
-.slider picture img{
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-@keyframes autoRun{
-  from{ left: 100%; }
-  to{ left: calc(var(--width) * -1); }
-}
-.slider:hover .item{
-  animation-play-state: paused!important;
-  filter: grayscale(1);
-}
-.slider .item:hover{ filter: grayscale(0); }
-
-/* ========== CONTACT ========== */
-.contact-section{
-  width: min(1100px, 90%);
-  margin: 0 auto;
-  padding: 6rem 0 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
-  gap: 10%;
-  justify-items: center;
-}
-
-.contact-section .section-title{
-  grid-column: 1 / -1;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.social-box{
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  justify-self: center;
-}
-
-.social-box a{
-  color: #f2f4ff;
-  text-decoration: none;
-  font-size: 20px;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.social-box a:hover{ opacity: 0.9; }
-
-.social-box i{
-  color: #7668ff;
-  font-size: 28px;
-}
-
-.social-icons{
-  display: flex;
-  gap: 18px;
-  margin-top: 6px;
-}
-
-.social-icons a i{
-  color: white;
-  font-size: 22px;
-}
-
-/* form */
-.contact-box{
-  justify-self: center;
-  width: 100%;
-}
-.contact-box p{
-  max-width: 48ch;
-  margin-top: 14px;
-  margin-bottom: 6px;
-}
-
-.contact-box input,
-.contact-box textarea{
-  width: 100%;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.20);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: white;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.1);
-  outline: none;
-}
-.contact-box textarea{ resize: vertical; }
-
-.contact-box input::placeholder,
-.contact-box textarea::placeholder{
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.contact-box input:focus,
-.contact-box textarea:focus{
-  border: 1px solid #7668ff;
-  box-shadow: 0 0 8px #7668ff80;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.glow-button{
-  background-color: #0d0225;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 12px;
-  border: 1px solid #7668ff80;
-  box-shadow: 0 0 8px #7668ff80;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 16px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.glow-button:hover{
-  box-shadow: 0 0 16px #7668ff;
-  opacity: 0.95;
-}
-.glow-button i{ font-size: 18px; }
-
-/* ========== FOOTER ========== */
-.footer{
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.121);
-  padding: 1rem 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-top: 40px;
-}
-
-.footer-content{
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer h1{
-  margin: 0;
-  font-size: 1.05rem;
-  text-align: center;
-}
-
-/* ========== EFFECTS (SAFE FALLBACK) ========== */
-/* По умолчанию: ничего не прячем (важно для iPhone/Telegram) */
-.autoBlur,
-.autoDisplay,
-.fadein-left{
-  animation: none;
-  filter: none;
-  opacity: 1;
-  transform: none;
-}
-
-/* Включаем эффекты только если браузер реально поддерживает view-timeline */
-@supports (animation-timeline: view()) {
-  .autoBlur{
-    animation: autoBlurAnimation linear both;
-    animation-timeline: view();
-  }
-  @keyframes autoBlurAnimation{
-    0%{ filter: blur(40px); opacity: 0.1; }
-    35%,65%{ filter: blur(0); opacity: 1; }
-    100%{ filter: blur(0); opacity: 1; }
-  }
-
-  .autoDisplay{
-    animation: autoDisplayAnimation both;
-    animation-timeline: view();
-  }
-  @keyframes autoDisplayAnimation{
-    0%{ filter: blur(10px); transform: translateY(-120px) scale(0.96); opacity: 0; }
-    50%{ opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
-    100%{ opacity: 1; filter: blur(0); transform: none; }
-  }
-
-  .fadein-left{
-    animation: fadeInLeftAnimation both;
-    animation-timeline: view();
-  }
-  @keyframes fadeInLeftAnimation{
-    0%{ opacity: 0; transform: translateX(-140px) scale(0.98); filter: blur(10px); }
-    45%,80%{ opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
-    100%{ opacity: 1; filter: blur(0); transform: none; }
-  }
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-aspect-ratio: 16/9){
-  .back-vid{ width: auto; height: 100%; }
-}
-@media (min-aspect-ratio: 16/9){
-  .back-vid{ width: 100%; height: auto; }
-}
-
-@media (max-width: 1200px){
-  .blackhole-box video{ margin-top: -20%; }
-  .hero-inner{ grid-template-columns: 1fr; }
-  .skills-video-box{ justify-content: flex-start; }
-}
-
-@media (max-width: 900px){
-  .contact-section{
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .info-cards{
-    grid-template-columns: 1fr;
-  }
-
-  .card:nth-child(3){
-    grid-row: auto;
-    min-height: 520px;
-  }
-  .card:nth-child(4){
-    grid-column: auto;
-  }
-
-  /* Skills -> column */
-  .skills-box{
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 20px 0 110px;
-    min-height: auto;
-  }
-  .skills-image{
-    width: min(300px, 75vw);
-    margin: 0 auto;
-  }
-  .slider{
-    width: 92%;
-    --width: 70px;
-    --height: 70px;
-  }
-}
-
-@media (max-width: 700px){
-  .site-header{
-    height: 56px;
-    padding: 0 14px;
-  }
-
-  /* прячем меню и иконки на мобилке (если хочешь бургер — сделаем) */
-  .nav{ display: none; }
-  .site-header .box-icons{ display: none; }
-
-  .name{
-    font-size: 18px;
-    white-space: normal;
-  }
-
-  .hero{ padding-top: 56px; }
-
-  .project-card{
-    flex-direction: column;
-    gap: 16px;
-  }
-  .project-vidbox{ width: 100%; }
-  .project-info{ width: 100%; }
-}
-
-@media (max-width: 480px){
-  .skills-video-box{ display: none; }
-
-  .blackhole-box{ overflow: hidden; }
-  .blackhole-box video{ width: 140%; margin-top: -27%; }
-
-  .section-title{ font-size: 28px; }
-
-  .footer{ padding: 15px; }
-  .footer h1{ max-width: 220px; font-size: 0.95rem; }
-}
-
-/* ===== PROJECTS: ALWAYS VISIBLE VIDEO ON MOBILE ===== */
-@media (max-width: 900px){
-  .project-vidbox{
-    width: 100% !important;
-    aspect-ratio: 16 / 9;
-    border-radius: 18px;
-    overflow: hidden;
-    background: rgba(0,0,0,0.25);
-    mix-blend-mode: normal !important;
-  }
-
-  .project-vidbox video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hover-sign{ display: none !important; }
-}
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karyna Vasylyshyna</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+  <!-- GLOBAL BACKGROUND VIDEO -->
+  <video class="back-vid" autoplay loop muted playsinline preload="auto">
+    <source src="videos/galaxy.mp4" type="video/mp4" />
+  </video>
+
+  <div class="container">
+
+    <header class="site-header">
+      <div class="left">
+        <img src="images/codechic.png" alt="codechic logo" />
+        <h2 class="name"><span>Karyna</span> Vasylyshyna</h2>
+      </div>
+
+      <nav class="nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="box-icons">
+        <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok">
+          <p><i class="bx bxl-tiktok"></i></p>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <p><i class="bx bxl-linkedin-square"></i></p>
+        </a>
+      </div>
+    </header>
+
+    <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000" aria-hidden="true">
+      <video autoplay loop muted playsinline src="videos/blackhole.mp4"></video>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
+          <div class="hero-info-title">
+            <i class="bx bxl-sketch"></i>
+            Junior Full-Stack Developer
+          </div>
+
+          <h1 data-aos="fade-right" data-aos-duration="2500">
+            Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
+          </h1>
+
+          <p>
+            I'm a junior full-stack developer with experience in Website, Mobile and Software development.
+            Check out my projects and skills.
+          </p>
+
+          <a href="#contact" class="btn-link">
+            <button type="button"><i class="bx bx-send"></i> Contact Me</button>
+          </a>
+        </div>
+
+        <div class="skills-video-box" aria-hidden="true">
+          <video class="skills-video autoBlur" autoplay loop muted playsinline src="videos/hero-video.mp4"></video>
+        </div>
+      </div>
+
+      <a class="scroll-down" href="#about" aria-label="Scroll to About"></a>
+    </section>
+
+    <section class="info-section autoBlur" id="about">
+      <h1 class="section-title autoDisplay">Hello,There👋</h1>
+
+      <div class="info-cards">
+        <div class="card">
+          <h1>Hi there, I'm Karyna</h1>
+          <p>
+            With 1 year of experience, I have honed my skills in both frontend and backend dev,
+            creating dynamic and responsive websites.
+          </p>
+          <img src="images/me.png" alt="Karyna avatar" />
+        </div>
+
+        <div class="card">
+          <h1>Tech Stack</h1>
+          <p>
+            I specialize in a variety of languages, frameworks, and tools that allow me to build robust
+            and scalable applications.
+          </p>
+          <img src="images/lan.png" alt="Tech stack icons" />
+        </div>
+
+        <div class="card">
+          <h1>I’m very flexible with time zone communications & locations</h1>
+          <p>I'm based in Switzerland, Zurich and open to remote work worldwide.</p>
+
+          <video src="videos/glob.mp4" autoplay loop muted playsinline></video>
+
+          <a href="#contact" class="btn-link">
+            <button type="button"><i class="bx bx-send"></i> Contact Me</button>
+          </a>
+        </div>
+
+        <div class="card">
+          <h1>My Passion for Coding</h1>
+          <p>
+            I love solving problems and building things through code. Programming isn't just my profession—it's my passion.
+            I enjoy exploring new technologies, and enhancing my skills.
+          </p>
+          <img src="images/grid4.png" alt="Coding grid image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="my-project" id="projects">
+      <h1 class="section-title autoDisplay">My Projects 👨‍💻</h1>
+
+      <div class="project-card">
+        <div class="project-vidbox autoBlur">
+          <video
+            class="project-video"
+            loop
+            src="videos/website.mp4"
+            muted
+            playsinline
+            preload="metadata"
+            poster="images/grid4.png"></video>
+          <div class="hover-sign" aria-hidden="true"></div>
+        </div>
+
+        <div class="project-info fadein-left">
+          <h1><span class="gradient">Onlineshop</span> Website</h1>
+          <p>
+            This project is a custom e-commerce platform developed according to the client’s specifications.
+            It includes multiple features such as product listings, category navigation, search functionality,
+            and a visually engaging layout focused on usability and performance.
+          </p>
+
+          <a class="btn-link" href="https://treehuggersupply.ch/" target="_blank" rel="noopener">
+            <button type="button"><i class="bx bx-link-external"></i> Website</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-vidbox autoBlur">
+          <video
+            class="project-video"
+            loop
+            src="videos/project2.mp4"
+            muted
+            playsinline
+            preload="metadata"
+            poster="images/grid4.png"></video>
+          <div class="hover-sign" aria-hidden="true"></div>
+        </div>
+
+        <div class="project-info fadein-left">
+          <h1>Modern <span class="gradient">Portfolio</span> Website</h1>
+          <p>I created a modern portfolio with many visual effects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <h1 class="section-title autoDisplay autoBlur">My Skills 💪</h1>
+
+      <div class="skills-box autoDisplay">
+        <div class="Designer autoDisplay autoBlur">
+          <h1 class="gradient">Designer <i class="bx bx-laptop"></i></h1>
+          <p>
+            I design and build clean, structured, and user-friendly web interfaces.
+            With a strong background in computer science and applied mathematics, I focus on usability, logical structure, and maintainable design.
+            I have hands-on experience developing and maintaining a full e-commerce website, including content structuring, interface optimization, and continuous improvements.
+          </p>
+        </div>
+
+        <img class="skills-image" src="images/digital brain (2).png" alt="Digital brain illustration" />
+
+        <div class="coder autoDisplay autoBlur">
+          <h1 class="gradient">Coder <i class="bx bx-code-block"></i></h1>
+          <p>
+            I am a junior full-stack developer and computer science student with a strong interest in software development, databases, and artificial intelligence.
+            I work with Java, Python, HTML, CSS, JavaScript, and MySQL, and have practical experience using Linux, Docker, Flask, and Node.js.
+            My experience includes full-cycle web development: building, maintaining, optimizing, and documenting real production projects.
+          </p>
+        </div>
+
+        <div class="slider autoBlur" style="--width: 100px; --height: 100px; --quantity: 9;">
+          <div class="list">
+            <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 2"><img src="images/2.png" alt="Tech icon 2" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 3"><img src="images/3.webp" alt="Tech icon 3" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 4"><img src="images/4.webp" alt="Tech icon 4" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 5"><img src="images/5.png" alt="Tech icon 5" loading="lazy" decoding="async" /></div>
+
+            <!-- IMPORTANT: 6.png -->
+            <div class="item" style="--position: 6"><img src="images/6.png" alt="Tech icon 6" loading="lazy" decoding="async" /></div>
+
+            <div class="item" style="--position: 7"><img src="images/7.png" alt="Tech icon 7" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 8"><img src="images/8.png" alt="Tech icon 8" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 9"><img src="images/codechic.png" alt="Codechic logo" loading="lazy" decoding="async" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <h1 class="section-title autoDisplay">Let's talk 😊</h1>
+
+      <div class="social-box autoBlur">
+        <a href="tel:+41765183404"><i class="bx bx-phone"></i> +41 765 183 404</a>
+        <a href="https://t.me/kkvrina" target="_blank" rel="noopener"><i class="bx bxl-telegram"></i> @kkvrina</a>
+        <a href="mailto:karynavasylyshyna@gmail.com"><i class="bx bx-envelope"></i> karynavasylyshyna@gmail.com</a>
+        <a href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener">
+          <i class="bx bxl-linkedin"></i> LinkedIn
+        </a>
+
+        <div class="social-icons">
+          <a href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok"><i class="bx bxl-tiktok"></i></a>
+          <a href="https://github.com/kkvrinna" target="_blank" rel="noopener" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://t.me/kkvrina" target="_blank" rel="noopener" aria-label="Telegram"><i class="bx bxl-telegram"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-box autoBlur"
+            action="mailto:karynavasylyshyna@gmail.com"
+            method="post"
+            enctype="text/plain">
+        <p>
+          Whether you're looking to build a new website, improve your existing
+          platform, or bring a unique project to life — I'm here to help.
+        </p>
+
+        <p>Full Name</p>
+        <input type="text" name="Full Name" placeholder="Your Full name" autocomplete="name" required />
+
+        <p>Email Address</p>
+        <input type="email" name="Email" placeholder="Your Email" autocomplete="email" required />
+
+        <p>Your Message</p>
+        <textarea class="input-message" name="Message" placeholder="Share your thoughts..." rows="4" required></textarea>
+
+        <button type="submit" class="glow-button">
+          Send Message <i class="bx bx-mail-send"></i>
+        </button>
+      </form>
+    </section>
+
+    <section class="footer">
+      <div class="footer-content">
+        <h1>© 2025, Made with ❤️ by Karyna Vasylyshyna</h1>
+        <div class="box-icons">
+          <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener"><p><i class="bx bxl-tiktok"></i></p></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener"><p><i class="bx bxl-linkedin-square"></i></p></a>
+          <a class="icon-btn" href="https://t.me/kkkkarinaaaa" target="_blank" rel="noopener"><p><i class="bx bxl-telegram"></i></p></a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // IMPORTANT: disable AOS on phones (otherwise text can stay hidden/blurred in iOS Telegram)
+    AOS.init({
+      once: true,
+      disable: () => window.innerWidth < 900
+    });
+  </script>
+</body>
+</html>
 
 
 
