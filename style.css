@@ -856,4 +856,81 @@ body{
   .footer{ padding: 15px; }
   .footer h1{ max-width: 220px; font-size: 0.95rem; }
 }
+:root{
+  --header-h: 70px;
+}
+@media (max-width: 700px){
+  :root{ --header-h: 56px; }
+}
+
+/* значок всегда под хедером */
+.scroll-down{
+  top: calc(var(--header-h) + 14px);
+  bottom: auto;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 20; /* чтобы не прятался */
+}
+/* универсальный стиль кнопок-ссылок (Website / Live / Demo) */
+a.website-btn,
+a.project-btn,
+.project-info a,
+.project-info .btn,
+.project-info button{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+  border-radius: 12px;
+
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(34, 0, 73, 0.25);
+  border: 1px solid rgba(114, 161, 222, 0.55);
+  box-shadow: 0 0 10px rgba(114, 161, 222, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: 0.25s ease;
+}
+
+a.website-btn:hover,
+a.project-btn:hover,
+.project-info a:hover,
+.project-info button:hover{
+  box-shadow: 0 0 18px rgba(114, 161, 222, 0.6);
+  transform: translateY(-1px);
+}
+@media (max-width: 900px){
+  .slider{
+    position: relative !important;   /* ✅ гарантируем */
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: min(520px, 92vw);
+    margin: 18px auto 0;
+    z-index: 1;
+
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+
+    --width: 70px;
+    --height: 70px;
+  }
+
+  /* чтобы под слайдер хватало места */
+  .skills-box{
+    padding-bottom: 40px;
+  }
+}
+
+
 
