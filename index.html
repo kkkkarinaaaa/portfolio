@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <!-- GLOBAL BACKGROUND VIDEO -->
   <video class="back-vid" autoplay loop muted playsinline preload="auto">
     <source src="videos/galaxy.mp4" type="video/mp4" />
@@ -19,10 +18,10 @@
 
   <div class="container">
 
-    <!-- ✅ HEADER (matches your CSS .site-header / .nav / .nav-list / .nav-link) -->
+    <!-- ✅ ВАЖНО: классы должны быть как в CSS -->
     <header class="site-header">
       <div class="left">
-        <img src="images/codechic.png" alt="logo" />
+        <img src="images/codechic.png" alt="codechic logo" />
         <h2 class="name"><span>Karyna</span> Vasylyshyna</h2>
       </div>
 
@@ -39,21 +38,18 @@
         <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok">
           <p><i class="bx bxl-tiktok"></i></p>
         </a>
-        <a class="icon-btn" href="https://github.com/kkvrinna" target="_blank" rel="noopener" aria-label="GitHub">
-          <p><i class="bx bxl-github"></i></p>
-        </a>
         <a class="icon-btn" href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <p><i class="bx bxl-linkedin-square"></i></p>
         </a>
       </div>
     </header>
 
-    <!-- ✅ BLACKHOLE stays at TOP (right after header) -->
+    <!-- ✅ Чёрная дыра сверху (как на локалке) -->
     <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000" aria-hidden="true">
       <video autoplay loop muted playsinline src="videos/blackhole.mp4"></video>
     </div>
 
-    <!-- ✅ HERO (structure matches your CSS .hero-inner grid) -->
+    <!-- HERO -->
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
@@ -71,7 +67,7 @@
             Check out my projects and skills.
           </p>
 
-          <!-- ✅ Contact Me = same style as Website (NO button inside link) -->
+          <!-- ✅ без button внутри a -->
           <div class="hero-actions">
             <a href="#contact" class="btn">
               <i class="bx bx-send"></i> Contact Me
@@ -84,7 +80,7 @@
         </div>
       </div>
 
-      <!-- ✅ Arrow is INSIDE hero and should be at BOTTOM (CSS must NOT force top) -->
+      <!-- ✅ стрелка ВНИЗУ hero -->
       <a class="scroll-down" href="#about" aria-label="Scroll to About"></a>
     </section>
 
@@ -111,7 +107,7 @@
           <img src="images/lan.png" alt="Tech stack icons" />
         </div>
 
-        <!-- ✅ NO Contact Me here -->
+        <!-- ✅ убрали Contact Me из Hello There -->
         <div class="card">
           <h1>I’m very flexible with time zone communications & locations</h1>
           <p>I'm based in Switzerland, Zurich and open to remote work worldwide.</p>
@@ -207,6 +203,7 @@
           </p>
         </div>
 
+        <!-- ✅ SLIDER (оставляем внутри skills-box) -->
         <div class="slider autoBlur" style="--width: 100px; --height: 100px; --quantity: 9;">
           <div class="list">
             <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" /></div>
@@ -290,6 +287,7 @@
   </script>
 </body>
 </html>
+
 
 
 
