@@ -864,6 +864,75 @@ body{
   .scroll-down{ bottom: 18px; }
 }
 
+/* ================= BUTTON STYLE (LIKE SCREENSHOT) ================= */
+.btn{
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.btn.btn-glass{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 16px 34px;            /* как на скрине */
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+
+  background: rgba(10, 10, 35, 0.55);   /* тёмная стекляшка */
+  border: 1px solid rgba(140, 170, 255, 0.35);
+
+  box-shadow:
+    0 0 0 1px rgba(120, 160, 255, 0.10) inset,
+    0 0 18px rgba(120, 160, 255, 0.18);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.btn.btn-glass:hover{
+  transform: translateY(-1px);
+  border-color: rgba(140, 170, 255, 0.55);
+  box-shadow:
+    0 0 0 1px rgba(120, 160, 255, 0.18) inset,
+    0 0 26px rgba(120, 160, 255, 0.30);
+}
+
+.btn-ico{
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ================= ARROW UNDER HEADER (FORCE) ================= */
+:root{ --header-h: 70px; }
+@media (max-width: 700px){ :root{ --header-h: 56px; } }
+
+/* hero must be anchor */
+.hero{ position: relative; }
+
+/* force arrow under header */
+.scroll-down{
+  position: absolute !important;
+  top: calc(var(--header-h) + 16px) !important;  /* ✅ сразу под header */
+  bottom: auto !important;
+
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  z-index: 1000 !important;
+}
+
 
 
 
