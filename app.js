@@ -1,44 +1,38 @@
-const video1 = document.getElementById('projectVideo1');
-const video2 = document.getElementById('websiteVideo');
-const video3 = document.getElementById('projectVideo3');
+// PROJECT VIDEOS: hover on desktop + tap on mobile
+document.addEventListener("DOMContentLoaded", () => {
+  const projectBoxes = document.querySelectorAll(".project-vidbox");
 
-// Sidebar elements //
-const sideBar = document.querySelector('.sidebar');
-const menu = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon')
+  projectBoxes.forEach((box) => {
+    const video = box.querySelector("video");
+    const hoverSign = box.querySelector(".hover-sign");
 
+    if (!video) return;
 
-const hoverSign = document.querySelector('.hover-sign');
+    // Make sure mobile can play inline
+    video.muted = true;
+    video.playsInline = true;
 
-const videoList =[video1, video2, video3];
+    // Desktop hover
+    box.addEventListener("mouseenter", () => {
+      video.play().catch(() => {});
+      hoverSign?.classList.add("active");
+    });
 
-videoList.forEach (function(video){
-    video.addEventListener("mouseover", function(){
-        video.play()
-        hoverSign.classList.add("active")
-    })
-    video.addEventListener("mouseout", function(){
-    video.pause();
-    hoverSign.classList.remove("active")
-})
-})
+    box.addEventListener("mouseleave", () => {
+      video.pause();
+      hoverSign?.classList.remove("active");
+    });
 
-// Sidebar elements //
-menu.addEventListener("click", function(){
-    sideBar.classList.remove("close-sidebar")
-    sideBar.classList.add("open-sidebar")
-});
-
-closeIcon.addEventListener("click", function(){
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
-    
-})
-
-if (closeIcon && sideBar) {
-  closeIcon.addEventListener("click", function () {
-    sideBar.classList.remove("open-sidebar");
-    sideBar.classList.add("close-sidebar");
+    // Mobile tap
+    box.addEventListener("click", () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+        hoverSign?.classList.add("active");
+      } else {
+        video.pause();
+        hoverSign?.classList.remove("active");
+      }
+    });
   });
-}
+});
 
