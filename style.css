@@ -8,7 +8,7 @@ body{
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: lightgray;
-  padding-bottom: 80px; /* чтобы футер не "съедал" конец */
+  padding-bottom: 80px;
 }
 
 /* ========== CONTAINER ========== */
@@ -71,27 +71,39 @@ body{
 
 .name span{ color: #72a1de; }
 
-.site-header ul{
+/* ===== NAV: pill under EACH item (как ты хотела) ===== */
+.nav-list{
   display: flex;
-  justify-content: space-between;
   gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 18px;
-  border-radius: 50px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+
   background-color: rgba(0, 0, 69, 0.326);
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px #72a1de63;
-  margin: 0;
+  transition: 0.25s ease;
 }
 
-.site-header ul li{ list-style: none; }
-
-.site-header ul a{
-  text-decoration: none;
-  color: white;
-  font-weight: 700;
-  margin: 0 6px;
+.nav-link:hover{
+  box-shadow: 0 0 18px #72a1de8a;
+  transform: translateY(-1px);
 }
 
+/* icons */
 .icon-btn{ text-decoration: none; }
 .icon-btn p{ margin: 0; }
 
@@ -141,7 +153,7 @@ body{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 70px; /* header fixed */
+  padding-top: 70px;
 }
 
 .hero-inner{
@@ -396,8 +408,6 @@ body{
   object-fit: cover;
 }
 
-.project-vidbox video:hover{ box-shadow: 0 0 25px rgb(255, 255, 255); }
-
 .project-info{
   display: flex;
   flex-direction: column;
@@ -421,21 +431,6 @@ body{
   min-width: 0;
   margin: 0 0 28px 0;
   line-height: 1.55;
-}
-
-.project-info button{
-  color: white;
-  padding: 14px 28px;
-  border-radius: 10px;
-  border: 1px solid #72a1de81;
-  background-color: #2200493d;
-  box-shadow: 0 0 5px #72a1de81;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.project-info button:hover{
-  opacity: 0.9;
-  box-shadow: 0 0 15px #72a1de81;
 }
 
 /* hover sign */
@@ -546,7 +541,20 @@ body{
   transition: filter 0.5s;
   animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
 }
-.slider .list .item img{ width: 100%; height: 100%; object-fit: contain; }
+.slider .list .item img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* если у тебя в HTML <picture> для 6-ой — тоже норм */
+.slider picture,
+.slider picture img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
 @keyframes autoRun{
   from{ left: 100%; }
@@ -698,12 +706,18 @@ body{
   text-align: center;
 }
 
-/* ========== EFFECTS (safe) ========== */
-.autoBlur{
+/* ========== EFFECTS (SAFE FALLBACK) ========== */
+/* По умолчанию: ничего не прячем (важно для iPhone/Telegram) */
+.autoBlur,
+.autoDisplay,
+.fadein-left{
+  animation: none;
   filter: none;
   opacity: 1;
+  transform: none;
 }
 
+/* Включаем эффекты только если браузер реально поддерживает view-timeline */
 @supports (animation-timeline: view()) {
   .autoBlur{
     animation: autoBlurAnimation linear both;
@@ -712,28 +726,28 @@ body{
   @keyframes autoBlurAnimation{
     0%{ filter: blur(40px); opacity: 0.1; }
     35%,65%{ filter: blur(0); opacity: 1; }
-    100%{ filter: blur(40px); opacity: 0; }
+    100%{ filter: blur(0); opacity: 1; }
   }
-}
 
-.autoDisplay{
-  animation: autoDisplayAnimation both;
-  animation-timeline: view();
-}
-@keyframes autoDisplayAnimation{
-  from{ filter: blur(10px); transform: translateY(-200px) scale(0.9); opacity: 0; }
-  50%{ opacity: 1; filter: blur(0px); transform: translateY(0) scale(1); }
-  to{ opacity: 1; }
-}
+  .autoDisplay{
+    animation: autoDisplayAnimation both;
+    animation-timeline: view();
+  }
+  @keyframes autoDisplayAnimation{
+    0%{ filter: blur(10px); transform: translateY(-120px) scale(0.96); opacity: 0; }
+    50%{ opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+    100%{ opacity: 1; filter: blur(0); transform: none; }
+  }
 
-.fadein-left{
-  animation: fadeInLeftAnimation both;
-  animation-timeline: view();
-}
-@keyframes fadeInLeftAnimation{
-  0%{ opacity: 0; transform: translateX(-200px) scale(0.95); filter: blur(10px); }
-  40%,70%{ opacity: 1; transform: translateX(0) scale(1); filter: blur(0px); }
-  100%{ opacity: 1; filter: blur(6px); }
+  .fadein-left{
+    animation: fadeInLeftAnimation both;
+    animation-timeline: view();
+  }
+  @keyframes fadeInLeftAnimation{
+    0%{ opacity: 0; transform: translateX(-140px) scale(0.98); filter: blur(10px); }
+    45%,80%{ opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
+    100%{ opacity: 1; filter: blur(0); transform: none; }
+  }
 }
 
 /* ========== RESPONSIVE ========== */
@@ -791,7 +805,9 @@ body{
     height: 56px;
     padding: 0 14px;
   }
-  .site-header ul{ display: none; }
+
+  /* прячем меню и иконки на мобилке (если хочешь бургер — сделаем) */
+  .nav{ display: none; }
   .site-header .box-icons{ display: none; }
 
   .name{
@@ -819,18 +835,6 @@ body{
 
   .footer{ padding: 15px; }
   .footer h1{ max-width: 220px; font-size: 0.95rem; }
-}
-
-/* ===== FINAL MOBILE OVERRIDES (MUST BE AT END) ===== */
-@media (max-width: 900px), (prefers-reduced-motion: reduce) {
-  .autoBlur,
-  .autoDisplay,
-  .fadein-left {
-    animation: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }
 
 /* ===== PROJECTS: ALWAYS VISIBLE VIDEO ON MOBILE ===== */
