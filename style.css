@@ -933,6 +933,54 @@ body{
   z-index: 1000 !important;
 }
 
+/* ================= SLIDER CENTER (FORCE DESKTOP) ================= */
+.skills-box{ position: relative; } /* обязательно якорь */
+
+.slider{
+  /* прибиваем по центру независимо от grid */
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  bottom: 18px;
+  margin: 0 !important;
+
+  width: min(900px, 92vw);
+  height: var(--height);
+  overflow: hidden;
+
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+
+  mix-blend-mode: difference;
+  opacity: 0.9;
+}
+
+/* mobile как блок (без наложения) — оставь так */
+@media (max-width: 900px){
+  .slider{
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: min(520px, 92vw);
+    margin: 18px auto 0 !important;
+
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+
+    --width: 70px;
+    --height: 70px;
+  }
+
+  .skills-box{ padding-bottom: 40px !important; }
+}
+
 
 
 
