@@ -12,25 +12,27 @@
 
 <body>
 
-  <!-- GLOBAL BACKGROUND VIDEO (always visible) -->
+  <!-- GLOBAL BACKGROUND VIDEO -->
   <video class="back-vid" autoplay loop muted playsinline preload="auto">
     <source src="videos/galaxy.mp4" type="video/mp4" />
   </video>
 
   <div class="container">
 
-    <header>
+    <header class="site-header">
       <div class="left">
-        <img src="images/codechic.png" alt="logo" />
+        <img src="images/codechic.png" alt="codechic logo" />
         <h2 class="name"><span>Karyna</span> Vasylyshyna</h2>
       </div>
 
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <nav class="nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
       <div class="box-icons">
         <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok">
@@ -42,33 +44,35 @@
       </div>
     </header>
 
-    <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000">
+    <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000" aria-hidden="true">
       <video autoplay loop muted playsinline src="videos/blackhole.mp4"></video>
     </div>
 
     <section class="hero" id="top">
-      <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
-        <div class="hero-info-title">
-          <i class="bx bxl-sketch"></i>
-          Junior Full-Stack Developer
+      <div class="hero-inner">
+        <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
+          <div class="hero-info-title">
+            <i class="bx bxl-sketch"></i>
+            Junior Full-Stack Developer
+          </div>
+
+          <h1 data-aos="fade-right" data-aos-duration="3000">
+            Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
+          </h1>
+
+          <p>
+            I'm a junior full-stack developer with experience in Website, Mobile and Software development.
+            Check out my projects and skills.
+          </p>
+
+          <a href="#contact" class="btn-link">
+            <button type="button"><i class="bx bx-send"></i> Contact Me</button>
+          </a>
         </div>
 
-        <h1 data-aos="fade-right" data-aos-duration="3000">
-          Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
-        </h1>
-
-        <p>
-          I'm a junior full-stack developer with experience in Website, Mobile and Software development.
-          Check out my projects and skills.
-        </p>
-
-        <a href="#contact" class="btn-link">
-          <button><i class="bx bx-send"></i> Contact Me</button>
-        </a>
-      </div>
-
-      <div class="skills-video-box">
-        <video class="skills-video autoBlur" autoplay loop muted playsinline src="videos/hero-video.mp4"></video>
+        <div class="skills-video-box" aria-hidden="true">
+          <video class="skills-video autoBlur" autoplay loop muted playsinline src="videos/hero-video.mp4"></video>
+        </div>
       </div>
 
       <a class="scroll-down" href="#about" aria-label="Scroll to About"></a>
@@ -84,7 +88,7 @@
             With 1 year of experience, I have honed my skills in both frontend and backend dev,
             creating dynamic and responsive websites.
           </p>
-          <img src="images/me.png" alt="" />
+          <img src="images/me.png" alt="Karyna avatar" />
         </div>
 
         <div class="card">
@@ -93,7 +97,7 @@
             I specialize in a variety of languages, frameworks, and tools that allow me to build robust
             and scalable applications.
           </p>
-          <img src="images/lan.png" alt="" />
+          <img src="images/lan.png" alt="Tech stack icons" />
         </div>
 
         <div class="card">
@@ -103,7 +107,7 @@
           <video src="videos/glob.mp4" autoplay loop muted playsinline></video>
 
           <a href="#contact" class="btn-link">
-            <button><i class="bx bx-send"></i> Contact Me</button>
+            <button type="button"><i class="bx bx-send"></i> Contact Me</button>
           </a>
         </div>
 
@@ -113,7 +117,7 @@
             I love solving problems and building things through code. Programming isn't just my profession—it's my passion.
             I enjoy exploring new technologies, and enhancing my skills.
           </p>
-          <img src="images/grid4.png" alt="" />
+          <img src="images/grid4.png" alt="Coding grid image" />
         </div>
       </div>
     </section>
@@ -123,8 +127,8 @@
 
       <div class="project-card">
         <div class="project-vidbox autoBlur">
-          <video loop id="projectVideo1" src="videos/website.mp4"></video>
-          <div class="hover-sign"></div>
+          <video loop id="projectVideo1" src="videos/website.mp4" muted playsinline preload="metadata"></video>
+          <div class="hover-sign" aria-hidden="true"></div>
         </div>
 
         <div class="project-info fadein-left">
@@ -136,14 +140,15 @@
           </p>
 
           <a class="btn-link" href="https://treehuggersupply.ch/" target="_blank" rel="noopener">
-            <button><i class="bx bx-link-external"></i> Website</button>
+            <button type="button"><i class="bx bx-link-external"></i> Website</button>
           </a>
         </div>
       </div>
 
       <div class="project-card">
         <div class="project-vidbox autoBlur">
-          <video loop id="projectVideo2" src="videos/project2.mp4"></video>
+          <video loop id="projectVideo2" src="videos/project2.mp4" muted playsinline preload="metadata"></video>
+          <div class="hover-sign" aria-hidden="true"></div>
         </div>
 
         <div class="project-info fadein-left">
@@ -157,37 +162,37 @@
       <h1 class="section-title autoDisplay autoBlur">My Skills 💪</h1>
 
       <div class="skills-box autoDisplay">
-        <img class="skills-image" src="images/digital brain (2).png" alt="" />
-
         <div class="Designer autoDisplay autoBlur">
           <h1 class="gradient">Designer <i class="bx bx-laptop"></i></h1>
           <p>
-            I design and build clean, structured, and user-friendly web interfaces.  
-            With a strong background in computer science and applied mathematics, I focus on usability, logical structure, and maintainable design.  
+            I design and build clean, structured, and user-friendly web interfaces.
+            With a strong background in computer science and applied mathematics, I focus on usability, logical structure, and maintainable design.
             I have hands-on experience developing and maintaining a full e-commerce website, including content structuring, interface optimization, and continuous improvements.
           </p>
         </div>
 
+        <img class="skills-image" src="images/digital brain (2).png" alt="Digital brain illustration" />
+
         <div class="coder autoDisplay autoBlur">
           <h1 class="gradient">Coder <i class="bx bx-code-block"></i></h1>
           <p>
-            I am a junior full-stack developer and computer science student with a strong interest in software development, databases, and artificial intelligence.  
-            I work with Java, Python, HTML, CSS, JavaScript, and MySQL, and have practical experience using Linux, Docker, Flask, and Node.js.  
+            I am a junior full-stack developer and computer science student with a strong interest in software development, databases, and artificial intelligence.
+            I work with Java, Python, HTML, CSS, JavaScript, and MySQL, and have practical experience using Linux, Docker, Flask, and Node.js.
             My experience includes full-cycle web development: building, maintaining, optimizing, and documenting real production projects.
           </p>
         </div>
 
         <div class="slider autoBlur" reverse="true" style="--width: 100px; --height: 100px; --quantity: 9;">
           <div class="list">
-            <div class="item" style="--position: 1"><img src="images/1.png" alt="" /></div>
-            <div class="item" style="--position: 2"><img src="images/2.png" alt="" /></div>
-            <div class="item" style="--position: 3"><img src="images/3.webp" alt="" /></div>
-            <div class="item" style="--position: 4"><img src="images/4.webp" alt="" /></div>
-            <div class="item" style="--position: 5"><img src="images/5.png" alt="" /></div>
-            <div class="item" style="--position: 6"><img src="images/6.png" alt="" /></div>
-            <div class="item" style="--position: 7"><img src="images/7.png" alt="" /></div>
-            <div class="item" style="--position: 8"><img src="images/8.png" alt="" /></div>
-            <div class="item" style="--position: 9"><img src="images/codechic.png" alt="" /></div>
+            <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" /></div>
+            <div class="item" style="--position: 2"><img src="images/2.png" alt="Tech icon 2" /></div>
+            <div class="item" style="--position: 3"><img src="images/3.webp" alt="Tech icon 3" /></div>
+            <div class="item" style="--position: 4"><img src="images/4.webp" alt="Tech icon 4" /></div>
+            <div class="item" style="--position: 5"><img src="images/5.png" alt="Tech icon 5" /></div>
+            <div class="item" style="--position: 6"><img src="images/6.png" alt="Tech icon 6" /></div>
+            <div class="item" style="--position: 7"><img src="images/7.png" alt="Tech icon 7" /></div>
+            <div class="item" style="--position: 8"><img src="images/8.png" alt="Tech icon 8" /></div>
+            <div class="item" style="--position: 9"><img src="images/codechic.png" alt="Codechic logo" /></div>
           </div>
         </div>
       </div>
@@ -212,7 +217,6 @@
         </div>
       </div>
 
-      
       <form class="contact-box autoBlur"
             action="mailto:karynavasylyshyna@gmail.com"
             method="post"
@@ -252,12 +256,8 @@
 
   <script src="app.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({ once: true });</script>
+  <script>
+    AOS.init({ once: true });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
