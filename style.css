@@ -499,14 +499,18 @@ body{
   line-height: 1.6;
 }
 
-/* ===== SLIDER: DESKTOP (centered by icon row width) ===== */
+/* ===================== SLIDER (REPLACE ALL OLD SLIDER CSS) ===================== */
+
+/* container: hard center */
 .slider{
   position: absolute;
   bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
 
-  width: min(calc(var(--width) * var(--quantity)), 92vw);
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+
+  width: min(900px, 92vw);
   height: var(--height);
   overflow: hidden;
 
@@ -517,30 +521,86 @@ body{
   opacity: 0.9;
 }
 
-/* ===== SLIDER: MOBILE (centered, stable) ===== */
+/* moving line */
+.slider .list{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* items (marquee) */
+.slider .list .item{
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  top: 0;
+
+  animation: autoRun 10s linear infinite;
+  animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
+}
+
+.slider .list .item img,
+.slider .list .item picture,
+.slider .list .item picture img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes autoRun{
+  from{ left: 100%; }
+  to{ left: calc(var(--width) * -1); }
+}
+
+.slider:hover .item{
+  animation-play-state: paused !important;
+  filter: grayscale(1);
+}
+.slider .item:hover{ filter: grayscale(0); }
+
+/* ===================== MOBILE: ALWAYS CENTER (STATIC) ===================== */
 @media (max-width: 900px){
   .slider{
     position: relative;
-    left: auto;
     bottom: auto;
-    transform: none;
 
-    /* ключ: ширина = ширина ряда иконок, не 100% */
-    width: min(calc(var(--width) * var(--quantity)), 92vw);
+    /* центрируем блок */
+    left: 0;
+    right: 0;
     margin: 18px auto 0;
 
+    width: min(520px, 92vw);
+    height: auto;
+
+    /* на мобилке убираем эффекты, чтобы не "съезжало" */
     mask-image: none;
     -webkit-mask-image: none;
-
     mix-blend-mode: normal;
     opacity: 1;
+  }
 
-    --width: 70px;
-    --height: 70px;
+  /* делаем ряд статичным и по центру */
+  .slider .list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;          /* если не помещается — перенос */
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .slider .list .item{
+    position: static;
+    animation: none !important;
+    width: 64px;
+    height: 64px;
   }
 }
-
-
 
 /* ========== CONTACT ========== */
 .contact-section{
@@ -837,6 +897,7 @@ body{
   .footer{ padding: 15px; }
   .footer h1{ max-width: 220px; font-size: 0.95rem; }
 }
+
 
 
 
