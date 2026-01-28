@@ -126,8 +126,17 @@
       <h1 class="section-title autoDisplay">My Projects 👨‍💻</h1>
 
       <div class="project-card">
-        <div class="project-vidbox autoBlur">
-          <video loop id="projectVideo1" src="videos/website.mp4" muted playsinline preload="metadata"></video>
+        <!-- убрали autoBlur с vidbox, чтобы не было blur на мобилке -->
+        <div class="project-vidbox">
+          <video
+            loop
+            id="projectVideo1"
+            src="videos/website.mp4"
+            muted
+            playsinline
+            preload="metadata"
+            controls
+            poster="images/grid4.png"></video>
           <div class="hover-sign" aria-hidden="true"></div>
         </div>
 
@@ -146,8 +155,16 @@
       </div>
 
       <div class="project-card">
-        <div class="project-vidbox autoBlur">
-          <video loop id="projectVideo2" src="videos/project2.mp4" muted playsinline preload="metadata"></video>
+        <div class="project-vidbox">
+          <video
+            loop
+            id="projectVideo2"
+            src="videos/project2.mp4"
+            muted
+            playsinline
+            preload="metadata"
+            controls
+            poster="images/grid4.png"></video>
           <div class="hover-sign" aria-hidden="true"></div>
         </div>
 
@@ -261,3 +278,5 @@
   </script>
 </body>
 </html>
+
+
