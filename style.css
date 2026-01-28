@@ -499,27 +499,36 @@ body{
   line-height: 1.6;
 }
 
-/* slider (desktop) */
+/* ===== SLIDER (always centered) ===== */
 .slider{
   position: absolute;
   bottom: 18px;
+
   left: 50%;
   transform: translateX(-50%);
-  width: min(900px, 90%);
+
+  /* главное: ширина = ширина иконок, тогда центр настоящий */
+  width: min(calc(var(--width) * var(--quantity)), 92vw);
+
   height: var(--height);
   overflow: hidden;
+
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+
   mix-blend-mode: difference;
   opacity: 0.9;
 }
 
+/* list */
 .slider .list{
   display: flex;
   width: 100%;
   min-width: calc(var(--width) * var(--quantity));
   position: relative;
 }
+
+/* items */
 .slider .list .item{
   width: var(--width);
   height: var(--height);
@@ -547,6 +556,29 @@ body{
   filter: grayscale(1);
 }
 .slider .item:hover{ filter: grayscale(0); }
+
+/* ===== MOBILE: keep centered + no weird blend/mask ===== */
+@media (max-width: 900px){
+  .slider{
+    position: relative;   /* чтобы не уезжал */
+    left: auto;
+    bottom: auto;
+    transform: none;
+
+    width: min(calc(var(--width) * var(--quantity)), 92vw);
+    margin: 18px auto 0;
+
+    mix-blend-mode: normal;
+    opacity: 1;
+
+    mask-image: none;
+    -webkit-mask-image: none;
+
+    --width: 70px;
+    --height: 70px;
+  }
+}
+
 
 /* ========== CONTACT ========== */
 .contact-section{
@@ -843,6 +875,7 @@ body{
   .footer{ padding: 15px; }
   .footer h1{ max-width: 220px; font-size: 0.95rem; }
 }
+
 
 
 
