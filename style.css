@@ -858,17 +858,55 @@ body{
   line-height: 1;
 }
 
-/* ================= ARROW (BOTTOM OF HERO) ================= */
-.hero{ position: relative; }
+/* ================= SCROLL ARROW (UNDER HEADER) ================= */
+:root{ --header-h: 70px; }
+@media (max-width: 700px){ :root{ --header-h: 56px; } }
 
+/* базовый вид */
 .scroll-down{
-  position: absolute !important;
-  top: auto !important;        /* ✅ убираем верх */
-  bottom: 5% !important;       /* ✅ внизу секции */
+  height: 50px;
+  width: 30px;
+  border: 2px solid lightgray;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
+
+  /* ✅ Позиция: всегда под хедером */
+  position: fixed !important;
+  top: calc(var(--header-h) + 12px) !important;
+  bottom: auto !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 20 !important;
+  z-index: 2000 !important;
 }
+
+/* стрелочки внутри */
+.scroll-down::before,
+.scroll-down::after{
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -100%) rotate(45deg);
+  border: 2px solid lightgray;
+  border-top: transparent;
+  border-left: transparent;
+  animation: scrollDownAnim 2s ease-in-out infinite;
+}
+.scroll-down::before{
+  top: 30%;
+  animation-delay: 0.5s;
+}
+
+@keyframes scrollDownAnim{
+  0%{ opacity: 0; }
+  30%{ opacity: 1; }
+  60%{ opacity: 1; }
+  100%{ top: 90%; opacity: 0; }
+}
+
 
 /* ===================== SLIDER (FIXED + CENTERED) ===================== */
 .skills-box{ position: relative; } /* якорь для absolute */
@@ -969,5 +1007,6 @@ body{
     --height: 70px;
   }
 }
+
 
 
