@@ -886,6 +886,91 @@ body{
 
 
 
+/* ===================== SLIDER (CENTER FIX + WORKING) ===================== */
+
+/* слайдер должен занимать ВСЮ ширину grid, иначе центр "сбоку" */
+.skills-box { position: relative; }
+
+.slider{
+  grid-column: 1 / -1;          /* ✅ главное! */
+  justify-self: center;
+
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+
+  width: min(900px, 92vw);
+  height: var(--height);
+  overflow: hidden;
+
+  mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+
+  mix-blend-mode: difference;
+  opacity: 0.9;
+}
+
+.slider .list{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider .list .item{
+  width: var(--width);
+  height: var(--height);
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  left: 100%;
+  animation: autoRun 10s linear infinite;
+  animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
+}
+
+.slider .list .item img,
+.slider .list .item picture,
+.slider .list .item picture img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes autoRun{
+  from { left: 100%; }
+  to   { left: calc(var(--width) * -1); }
+}
+
+.slider:hover .item{
+  animation-play-state: paused !important;
+  filter: grayscale(1);
+}
+.slider .item:hover{ filter: grayscale(0); }
+
+/* ===================== MOBILE: centered + no blend/mask ===================== */
+@media (max-width: 900px){
+  .slider{
+    position: relative;        /* ✅ чтобы не "приклеивался" странно */
+    left: 50%;
+    bottom: auto;
+    transform: translateX(-50%);
+    margin-top: 18px;
+
+    width: min(520px, 92vw);
+
+    mask-image: none;
+    -webkit-mask-image: none;
+    mix-blend-mode: normal;
+    opacity: 1;
+
+    --width: 70px;
+    --height: 70px;
+  }
+}
+
 
 
 
