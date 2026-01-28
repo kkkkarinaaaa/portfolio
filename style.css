@@ -901,4 +901,75 @@ a.project-btn:hover{
 }
 
 
+/* ================= FIXES (PUT AT VERY END) ================= */
+
+/* 1) Arrow прямо под header */
+:root{ --header-h: 70px; }
+@media (max-width: 700px){ :root{ --header-h: 56px; } }
+
+.hero{ position: relative; } /* чтобы стрелка была привязана к hero */
+
+.scroll-down{
+  position: absolute;
+  top: calc(var(--header-h) + 14px); /* ✅ под хедером */
+  bottom: auto !important;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+/* 2) Кнопки-ссылки (Contact Me / Website) */
+a.btn-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+  border-radius: 10px;
+
+  color: #fff;
+  text-decoration: none;
+
+  border: 1px solid rgba(114, 161, 222, 0.55);
+  background: rgba(34, 0, 73, 0.25);
+  box-shadow: 0 0 10px rgba(114, 161, 222, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: 0.25s ease;
+}
+a.btn-link:hover{
+  box-shadow: 0 0 18px rgba(114, 161, 222, 0.6);
+  transform: translateY(-1px);
+}
+
+/* 3) Mobile slider: без наложения */
+@media (max-width: 900px){
+  /* ✅ даём место снизу под слайдер */
+  .skills-box{
+    padding-bottom: 120px !important;
+  }
+
+  /* ✅ принудительно делаем слайдер обычным блоком */
+  .slider{
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+
+    width: min(520px, 92vw);
+    margin: 18px auto 0;
+
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+
+    --width: 70px;
+    --height: 70px;
+  }
+}
+
 
