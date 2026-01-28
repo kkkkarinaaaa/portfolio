@@ -11,72 +11,71 @@
 </head>
 
 <body>
-  <!-- GLOBAL BACKGROUND VIDEO -->
+
+  <!-- GLOBAL BACKGROUND VIDEO (always visible) -->
   <video class="back-vid" autoplay loop muted playsinline preload="auto">
     <source src="videos/galaxy.mp4" type="video/mp4" />
   </video>
 
   <div class="container">
 
-<header class="site-header">
-  <div class="left">
-    <img src="images/codechic.png" alt="codechic logo" />
-    <h2 class="name"><span>Karyna</span> Vasylyshyna</h2>
-  </div>
-
-  <nav class="nav" aria-label="Main Navigation">
-    <ul class="nav-list">
-      <li><a class="nav-link" href="#about">About</a></li>
-      <li><a class="nav-link" href="#skills">Skills</a></li>
-      <li><a class="nav-link" href="#projects">Projects</a></li>
-      <li><a class="nav-link" href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="box-icons">
-    <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok">
-      <p><i class="bx bxl-tiktok"></i></p>
-    </a>
-    <a class="icon-btn" href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <p><i class="bx bxl-linkedin-square"></i></p>
-    </a>
-  </div>
-
-  <!-- ✅ Arrow under header content -->
-  <a class="scroll-down" href="#about" aria-label="Scroll to About"></a>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-    <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
-      <div class="hero-info-title">
-        <i class="bx bxl-sketch"></i>
-        Junior Full-Stack Developer
+    <header>
+      <div class="left">
+        <img src="images/codechic.png" alt="logo" />
+        <h2 class="name"><span>Karyna</span> Vasylyshyna</h2>
       </div>
 
-      <h1 data-aos="fade-right" data-aos-duration="2500">
-        Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
-      </h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-      <p>
-        I'm a junior full-stack developer with experience in Website, Mobile and Software development.
-        Check out my projects and skills.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn">
-          <i class="bx bx-send"></i> Contact Me
+      <div class="box-icons">
+        <a class="icon-btn" href="https://www.tiktok.com/@justcodinggirl404" target="_blank" rel="noopener" aria-label="TikTok">
+          <p><i class="bx bxl-tiktok"></i></p>
+        </a>
+        <a class="icon-btn" href="https://github.com/kkvrinna" target="_blank" rel="noopener" aria-label="GitHub">
+          <p><i class="bx bxl-github"></i></p>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/karyna-vasylyshyna-897191352/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <p><i class="bx bxl-linkedin-square"></i></p>
         </a>
       </div>
+    </header>
+
+    <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000">
+      <video autoplay loop muted playsinline src="videos/blackhole.mp4"></video>
     </div>
 
-    <div class="skills-video-box" aria-hidden="true">
-      <video class="skills-video autoBlur" autoplay loop muted playsinline src="videos/hero-video.mp4"></video>
-    </div>
-  </div>
-</section>
+    <section class="hero" id="top">
+      <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
+        <div class="hero-info-title">
+          <i class="bx bxl-sketch"></i>
+          Junior Full-Stack Developer
+        </div>
 
+        <h1 data-aos="fade-right" data-aos-duration="3000">
+          Providing <span class="gradient">the best</span> Project <span class="gradient">Experience</span>
+        </h1>
+
+        <p>
+          I'm a junior full-stack developer with experience in Website, Mobile and Software development.
+          Check out my projects and skills.
+        </p>
+
+        <a href="#contact" class="btn-link">
+          <button><i class="bx bx-send"></i> Contact Me</button>
+        </a>
+      </div>
+
+      <div class="skills-video-box">
+        <video class="skills-video autoBlur" autoplay loop muted playsinline src="videos/hero-video.mp4"></video>
+      </div>
+
+      <a class="scroll-down" href="#about" aria-label="Scroll to About"></a>
+    </section>
 
     <!-- ABOUT -->
     <section class="info-section autoBlur" id="about">
@@ -282,6 +281,7 @@
   </script>
 </body>
 </html>
+
 
 
 
