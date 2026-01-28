@@ -3,6 +3,10 @@
 
 html { scroll-behavior: smooth; }
 
+:root{
+  --header-h: 70px;
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -45,7 +49,7 @@ body{
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  height: 70px;
+  height: var(--header-h);
   background-color: rgba(255, 255, 255, 0.121);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 15px #72a1dea2;
@@ -71,7 +75,7 @@ body{
 
 .name span{ color: #72a1de; }
 
-/* ===== NAV: pill under EACH item ===== */
+/* ===== NAV ===== */
 .nav-list{
   display: flex;
   gap: 14px;
@@ -151,7 +155,8 @@ body{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 70px;
+  padding-top: var(--header-h);
+  position: relative; /* ✅ для стрелки */
 }
 
 .hero-inner{
@@ -190,19 +195,6 @@ body{
   font-size: 18px;
 }
 
-/* если где-то остались button внутри hero */
-.hero-info button{
-  color: white;
-  padding: 14px 28px;
-  border-radius: 10px;
-  border: 1px solid #72a1de81;
-  background-color: #2200493d;
-  box-shadow: 0 0 5px #72a1de81;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.hero-info button:hover{ box-shadow: 0 0 15px #72a1de81; }
-
 .skills-video-box{
   display: flex;
   justify-content: flex-end;
@@ -225,7 +217,7 @@ body{
 }
 @keyframes animate-gradient { to{ background-position: 200%; } }
 
-/* Scroll down (base) */
+/* ========== SCROLL DOWN (под хедером) ========== */
 .scroll-down{
   height: 50px;
   width: 30px;
@@ -233,10 +225,12 @@ body{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 5%;
+  top: calc(var(--header-h) + 14px); /* ✅ под header */
+  bottom: auto;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
+  z-index: 50;
 }
 .scroll-down::before,
 .scroll-down::after{
@@ -258,6 +252,37 @@ body{
   30%{ opacity: 1; }
   60%{ opacity: 1; }
   100%{ top: 90%; opacity: 0; }
+}
+
+/* ========== BUTTON LINKS (Contact / Website одинаково) ========== */
+a.btn-link,
+a.btn-link.btn-main,
+a.website-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+  border-radius: 14px;
+
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(34, 0, 73, 0.25);
+  border: 1px solid rgba(114, 161, 222, 0.55);
+  box-shadow: 0 0 10px rgba(114, 161, 222, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: 0.25s ease;
+}
+
+a.btn-link:hover,
+a.website-btn:hover{
+  box-shadow: 0 0 18px rgba(114, 161, 222, 0.6);
+  transform: translateY(-1px);
 }
 
 /* ========== INFO ========== */
@@ -331,33 +356,7 @@ body{
   mix-blend-mode: lighten;
 }
 
-.card button{
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  padding: 10px 25px;
-  border: 1px solid gray;
-  background-color: #0f1217;
-  color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 5px lightgray;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.card button:hover{ box-shadow: 0 0 15px lightgray; opacity: 0.85; }
 .card:hover{ box-shadow: 0 0 15px rgb(211, 211, 211); }
-
-.card:nth-child(3){
-  grid-row: span 2;
-  height: auto;
-  min-height: 680px;
-}
-.card:nth-child(3) p{ bottom: 12%; }
-.card:nth-child(3) h1{ bottom: 21%; }
-
-.card:nth-child(4){ grid-column: span 2; }
-.card:nth-child(4) p{ max-width: 650px; }
-.card:nth-child(4) h1{ bottom: 35%; }
 
 /* ========== PROJECTS ========== */
 .my-project{
@@ -401,7 +400,7 @@ body{
 .project-info{
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   width: 50%;
 }
@@ -419,8 +418,17 @@ body{
   width: 100%;
   max-width: 520px;
   min-width: 0;
-  margin: 0 0 28px 0;
+  margin: 0;
   line-height: 1.55;
+}
+
+/* ✅ кнопка Website вниз и по центру */
+.project-actions{
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
 }
 
 /* hover sign */
@@ -465,7 +473,7 @@ body{
   gap: 40px;
   mix-blend-mode: lighten;
   opacity: 0.95;
-  position: relative;
+  position: relative; /* anchor */
 }
 
 .skills-image{
@@ -478,7 +486,6 @@ body{
 
 .Designer,
 .coder{
-  position: static;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -500,7 +507,7 @@ body{
   line-height: 1.6;
 }
 
-/* ========== SLIDER (ONE CLEAN VERSION) ========== */
+/* ========== SLIDER (desktop) ========== */
 .slider{
   --width: 100px;
   --height: 100px;
@@ -540,9 +547,7 @@ body{
   animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
 }
 
-.slider .list .item img,
-.slider .list .item picture,
-.slider .list .item picture img{
+.slider .list .item img{
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -708,7 +713,6 @@ body{
   transform: none;
 }
 
-/* Enable only if supported */
 @supports (animation-timeline: view()) {
   .autoBlur{
     animation: autoBlurAnimation linear both;
@@ -738,49 +742,6 @@ body{
   }
 }
 
-/* ===================== FIXES (GLOBAL) ===================== */
-:root{ --header-h: 70px; }
-@media (max-width: 700px){ :root{ --header-h: 56px; } }
-
-/* scroll icon always under header */
-.scroll-down{
-  top: calc(var(--header-h) + 14px);
-  bottom: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-}
-
-/* link-buttons (Contact Me / Website) */
-a.btn-link,
-a.website-btn,
-a.project-btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 12px 18px;
-  border-radius: 12px;
-
-  color: #fff;
-  text-decoration: none;
-
-  background: rgba(34, 0, 73, 0.25);
-  border: 1px solid rgba(114, 161, 222, 0.55);
-  box-shadow: 0 0 10px rgba(114, 161, 222, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  transition: 0.25s ease;
-}
-
-a.btn-link:hover,
-a.website-btn:hover,
-a.project-btn:hover{
-  box-shadow: 0 0 18px rgba(114, 161, 222, 0.6);
-  transform: translateY(-1px);
-}
-
 /* ========== RESPONSIVE ========== */
 @media (max-aspect-ratio: 16/9){
   .back-vid{ width: auto; height: 100%; }
@@ -805,14 +766,6 @@ a.project-btn:hover{
     grid-template-columns: 1fr;
   }
 
-  .card:nth-child(3){
-    grid-row: auto;
-    min-height: 520px;
-  }
-  .card:nth-child(4){
-    grid-column: auto;
-  }
-
   /* Projects -> column */
   .project-card{
     flex-direction: column;
@@ -834,7 +787,7 @@ a.project-btn:hover{
   .skills-box{
     grid-template-columns: 1fr;
     gap: 18px;
-    padding: 20px 0 120px; /* ✅ ВАЖНО: место под слайдер */
+    padding: 20px 0 120px; /* ✅ место под slider */
     min-height: auto;
     mix-blend-mode: normal;
   }
@@ -845,7 +798,7 @@ a.project-btn:hover{
     mix-blend-mode: normal;
   }
 
-  /* ✅ Slider mobile: NO overlap */
+  /* ✅ slider mobile - normal block, no overlay */
   .slider{
     position: relative !important;
     left: auto !important;
@@ -872,8 +825,9 @@ a.project-btn:hover{
 }
 
 @media (max-width: 700px){
+  :root{ --header-h: 56px; }
+
   .site-header{
-    height: 56px;
     padding: 0 14px;
   }
 
@@ -884,8 +838,6 @@ a.project-btn:hover{
     font-size: 18px;
     white-space: normal;
   }
-
-  .hero{ padding-top: 56px; }
 }
 
 @media (max-width: 480px){
@@ -901,75 +853,5 @@ a.project-btn:hover{
 }
 
 
-/* ================= FIXES (PUT AT VERY END) ================= */
-
-/* 1) Arrow прямо под header */
-:root{ --header-h: 70px; }
-@media (max-width: 700px){ :root{ --header-h: 56px; } }
-
-.hero{ position: relative; } /* чтобы стрелка была привязана к hero */
-
-.scroll-down{
-  position: absolute;
-  top: calc(var(--header-h) + 14px); /* ✅ под хедером */
-  bottom: auto !important;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-}
-
-/* 2) Кнопки-ссылки (Contact Me / Website) */
-a.btn-link{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 14px 28px;
-  border-radius: 10px;
-
-  color: #fff;
-  text-decoration: none;
-
-  border: 1px solid rgba(114, 161, 222, 0.55);
-  background: rgba(34, 0, 73, 0.25);
-  box-shadow: 0 0 10px rgba(114, 161, 222, 0.35);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  transition: 0.25s ease;
-}
-a.btn-link:hover{
-  box-shadow: 0 0 18px rgba(114, 161, 222, 0.6);
-  transform: translateY(-1px);
-}
-
-/* 3) Mobile slider: без наложения */
-@media (max-width: 900px){
-  /* ✅ даём место снизу под слайдер */
-  .skills-box{
-    padding-bottom: 120px !important;
-  }
-
-  /* ✅ принудительно делаем слайдер обычным блоком */
-  .slider{
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-
-    width: min(520px, 92vw);
-    margin: 18px auto 0;
-
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    mix-blend-mode: normal !important;
-    opacity: 1 !important;
-
-    --width: 70px;
-    --height: 70px;
-  }
-}
 
 
