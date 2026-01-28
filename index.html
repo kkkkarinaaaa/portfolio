@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <!-- GLOBAL BACKGROUND VIDEO -->
   <video class="back-vid" autoplay loop muted playsinline preload="auto">
     <source src="videos/galaxy.mp4" type="video/mp4" />
@@ -26,11 +25,11 @@
       </div>
 
       <nav class="nav" aria-label="Main Navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -126,7 +125,6 @@
       <h1 class="section-title autoDisplay">My Projects 👨‍💻</h1>
 
       <div class="project-card">
-        <!-- убрали autoBlur с vidbox, чтобы не было blur на мобилке -->
         <div class="project-vidbox">
           <video
             loop
@@ -201,15 +199,23 @@
 
         <div class="slider autoBlur" reverse="true" style="--width: 100px; --height: 100px; --quantity: 9;">
           <div class="list">
-            <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" /></div>
-            <div class="item" style="--position: 2"><img src="images/2.png" alt="Tech icon 2" /></div>
-            <div class="item" style="--position: 3"><img src="images/3.webp" alt="Tech icon 3" /></div>
-            <div class="item" style="--position: 4"><img src="images/4.webp" alt="Tech icon 4" /></div>
-            <div class="item" style="--position: 5"><img src="images/5.png" alt="Tech icon 5" /></div>
-            <div class="item" style="--position: 6"><img src="images/6.png" alt="Tech icon 6" /></div>
-            <div class="item" style="--position: 7"><img src="images/7.png" alt="Tech icon 7" /></div>
-            <div class="item" style="--position: 8"><img src="images/8.png" alt="Tech icon 8" /></div>
-            <div class="item" style="--position: 9"><img src="images/codechic.png" alt="Codechic logo" /></div>
+            <div class="item" style="--position: 1"><img src="images/1.png" alt="Tech icon 1" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 2"><img src="images/2.png" alt="Tech icon 2" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 3"><img src="images/3.webp" alt="Tech icon 3" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 4"><img src="images/4.webp" alt="Tech icon 4" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 5"><img src="images/5.png" alt="Tech icon 5" loading="lazy" decoding="async" /></div>
+
+            <!-- FIX: icon 6 as <picture> (webp -> png fallback) -->
+            <div class="item" style="--position: 6">
+              <picture>
+                <source srcset="images/6.webp" type="image/webp">
+                <img src="images/6.png" alt="Tech icon 6" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+
+            <div class="item" style="--position: 7"><img src="images/7.png" alt="Tech icon 7" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 8"><img src="images/8.png" alt="Tech icon 8" loading="lazy" decoding="async" /></div>
+            <div class="item" style="--position: 9"><img src="images/codechic.png" alt="Codechic logo" loading="lazy" decoding="async" /></div>
           </div>
         </div>
       </div>
@@ -278,5 +284,6 @@
   </script>
 </body>
 </html>
+
 
 
