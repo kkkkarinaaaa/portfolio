@@ -275,7 +275,7 @@ body{
 }
 
 /* ========== INFO ========== */
-/* ========== INFO ========== */
+
 .info-section {
   display: flex;
   align-items: center;
@@ -304,13 +304,12 @@ body{
   flex-direction: column;
   justify-content: space-between;
   padding: 28px;
-  min-height: 280px;
+  min-height: 360px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background-color: #080020b7;
   border-radius: 20px;
   transition: 0.3s ease;
   overflow: hidden;
-  position: relative;
 }
 
 .card:hover {
@@ -318,59 +317,36 @@ body{
   transform: translateY(-4px);
 }
 
-.card h1,
-.card h2 {
-  position: static;
+.card h1 {
   margin: 0 0 14px 0;
   font-size: 24px;
   line-height: 1.2;
   color: #fff;
-  z-index: 1;
 }
 
 .card p {
-  position: static;
   margin: 0;
-  max-width: none;
   font-size: 14px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.88);
-  z-index: 1;
 }
 
-.card img,
-.card video {
+.card-media {
   width: 100%;
   max-width: 220px;
   height: auto;
+  max-height: 180px;
   object-fit: contain;
   align-self: center;
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
-.card video {
+video.card-media {
   max-width: 240px;
+  max-height: 200px;
   mix-blend-mode: lighten;
 }
 
-/* убираем старые растягивания */
-.card:nth-child(3),
-.card:nth-child(4) {
-  grid-row: auto;
-  grid-column: auto;
-  height: auto;
-  min-height: 280px;
-}
-
-.card:nth-child(3) p,
-.card:nth-child(3) h1,
-.card:nth-child(4) p,
-.card:nth-child(4) h1 {
-  bottom: auto;
-  max-width: none;
-}
-
-/* адаптив */
 @media (max-width: 900px) {
   .info-cards {
     grid-template-columns: 1fr;
