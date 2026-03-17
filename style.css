@@ -302,9 +302,10 @@ body{
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 18px;
   padding: 28px;
-  min-height: 360px;
+  min-height: 250px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background-color: #080020b7;
   border-radius: 20px;
@@ -312,13 +313,8 @@ body{
   overflow: hidden;
 }
 
-.card:hover {
-  box-shadow: 0 0 15px rgba(211, 211, 211, 0.25);
-  transform: translateY(-4px);
-}
-
 .card h1 {
-  margin: 0 0 14px 0;
+  margin: 0;
   font-size: 24px;
   line-height: 1.2;
   color: #fff;
@@ -331,34 +327,9 @@ body{
   color: rgba(255, 255, 255, 0.88);
 }
 
-.card-media {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
-  max-height: 180px;
-  object-fit: contain;
-  align-self: center;
-  margin-top: 24px;
-}
-
-video.card-media {
-  max-width: 240px;
-  max-height: 200px;
-  mix-blend-mode: lighten;
-}
-
-@media (max-width: 900px) {
-  .info-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    min-height: auto;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
+.card:hover {
+  box-shadow: 0 0 12px rgba(211, 211, 211, 0.18);
+  transform: translateY(-4px);
 }
 /* ========== PROJECTS ========== */
 .my-project{
